@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import ScoreByCountry from "./ScoreByCountry";
+import scores from "./scores";
+import "./App.css";
 
 function App() {
+  const [ascending, setAscending] = useState(false);
+  // changing order
+  const ChangeOrder = () => {
+    setAscending(!ascending);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Reacts
-        </a>
-      </header>
+    <div className="container">
+      <h1 className="heading">High Score By Country</h1>
+      <button className="btn btn--primary" onClick={ChangeOrder}>
+        {ascending ? "Descending" : "Ascending"} Order
+      </button>
+      {scores
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map((country, index) => {
+          return (
+            <ScoreByCountry
+              country={country.name}
+              info={country.scores}
+              order={ascending}
+              key={index}
+            />
+          );
+        })}
     </div>
   );
 }
