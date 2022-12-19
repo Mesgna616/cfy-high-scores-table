@@ -59,11 +59,28 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin: 0.5rem 1rem;
+  margin: 1.5rem 1.5rem;
+  background-color: aquamarine;
 
 }
 
 .card-title {
   margin: 0.5rem 0;
+  background-color: blue;
 }
+@media screen and (min-width:600px) {
+  .container {
+    margin: 2rem auto;
+    padding: 1rem;
+    width: 40%;
+  }
 
+  .heading {
+    font-size: 2rem;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+}

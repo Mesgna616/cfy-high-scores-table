@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ScoreByCountry from "./ScoreByCountry";
-import scores from "./scores";
+import allCountryScores from "./scores";
 import "./App.css";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
       <button className="btn btn--primary" onClick={ChangeOrder}>
         {ascending ? "Descending" : "Ascending"} Order
       </button>
-      {scores
+      {allCountryScores
         .sort((a, b) => a.name.localeCompare(b.name))
         .map((country, index) => {
           return (
